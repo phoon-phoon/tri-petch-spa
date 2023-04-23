@@ -37,7 +37,7 @@ const SliderBoxStyled = styled.div<WrapperStyleType>`
 
     .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
         top: unset;
-        bottom: ${props => props.bottom && typeof props.bottom === 'string' ? props.bottom : `${(props.bottom || 28)}px`};
+        bottom: ${props => props.bottom && typeof props.bottom === 'string' ? props.bottom : `${(props.bottom || 21)}px`};
 
         .swiper-pagination-bullet {
             width: 10px;

@@ -257,7 +257,7 @@ export default function SinglePageApp() {
               wrapperStyle={{
                 padding: '72px 18px 77px 19px',
                 height: 238,
-                bottom: 27,
+                bottom: 20,
               }}
               contentStartAt={0}
               contents={playersData.contents}

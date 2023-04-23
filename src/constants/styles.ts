@@ -39,6 +39,7 @@ export const STYLES_PLAYERS_DESKTOP: ContentStylesType = {
     '1': {
         marginTop: 68,
         marginBottom: 69,
+        width: 571
     },
     '2': {
         backgroundColor: '#F5F4F9',
