@@ -30,7 +30,7 @@ export default function SinglePageApp() {
       {/* Desktop Section */}
       <section
         className='lg:block md:hidden sm:hidden'
-        style={{ width: 1920, overflowX: 'hidden' }}
+        style={{ minWidth: 1920 }}
       >
         {/* Athlets */}
         <article className='relative'>
@@ -87,7 +87,7 @@ export default function SinglePageApp() {
             styles={{
               position: 'absolute',
               top: 0,
-              right: 125
+              left: 804
             }}
             background={
               <>
@@ -106,7 +106,7 @@ export default function SinglePageApp() {
       {/* Tablet Section */}
       <section
         className='lg:hidden md:block sm:hidden'
-        style={{ width: 768, overflowX: 'hidden' }}
+        style={{ minWidth: 768 }}
       >
         {/* Athlets */}
         <article className='relative'>
@@ -193,7 +193,7 @@ export default function SinglePageApp() {
       {/* Mobile Section */}
       <section
         className='lg:hidden md:hidden sm:block'
-        style={{ width: 320, overflowX: 'hidden' }}
+        style={{ minWidth: 320 }}
       >
         <article className='relative'>
           <div className='flex flex-col'>

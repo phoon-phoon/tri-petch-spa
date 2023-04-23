@@ -59,7 +59,7 @@ const ContentDescriptionStyled = styled.div<ContentStyleType>`
     font-weight: 400;
     line-height: ${props => props.description?.lineHeight && typeof props.description?.lineHeight === 'string' ? props.description?.lineHeight : `${(props.description?.lineHeight || 28)}px`};
     color: ${props => props.description?.color ?? '#000'};
-    letter-spacing: ${props => props.description?.letterSpacing && typeof props.description.letterSpacing === 'string' ? props.description.letterSpacing : `${(props.description?.letterSpacing || 1)}px`};
+    letter-spacing: ${props => props.description?.letterSpacing && typeof props.description.letterSpacing === 'string' ? props.description.letterSpacing : `${(props.description?.letterSpacing || 0)}px`};
 `
 
 const Content: FC<ContentPropsType> = (props) => {
