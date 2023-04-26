@@ -1,3 +1,4 @@
+import { SizeKeyType } from "@/constants/breakpoints"
 import { CSSProperties } from "react"
 
 export interface PositionStyle {
@@ -13,8 +14,8 @@ export interface FontStyle {
     lineHeight?: number | string
 }
 
-export type ContentStartAtType = number | string
-export type ContentBoxColorType = string
+export type ContentBoxStartType = { [Key in SizeKeyType]: number | string }
+export type ContentBoxBackgroundColorType = { [Key in SizeKeyType]: string | undefined }
 
 export interface TitleStyleType extends FontStyle {
     marginTop?: number

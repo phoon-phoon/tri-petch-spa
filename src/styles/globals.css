@@ -6,7 +6,7 @@
     overflow-x: hidden;
 } */
 
-#__next > section {
+#__next>section {
     width: 100%;
     overflow-x: hidden;
 }

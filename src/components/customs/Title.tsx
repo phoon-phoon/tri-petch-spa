@@ -1,11 +1,11 @@
-import { ContentStartAtType, TitleStyleType } from '@/interfaces/style'
+import { ContentBoxStartType, TitleStyleType } from '@/interfaces/style'
 import { FC } from 'react'
 import styled from 'styled-components'
 import Box from '../styled/Box'
 
 interface TitlePropsType {
     title: string
-    contentStartAt: ContentStartAtType
+    contentStartAt: ContentBoxStartType
     customStyles: TitleStyleType
 }
 

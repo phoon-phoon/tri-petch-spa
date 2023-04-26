@@ -2,12 +2,8 @@ import Head from 'next/head';
 
 import { athletsData, playersData } from '@/constants/default';
 import {
-  STYLES_ATHELETS_DESKTOP,
-  STYLES_ATHELETS_TABLET,
-  STYLES_ATHELETS_MOBILE,
-  STYLES_PLAYERS_DESKTOP,
-  STYLES_PLAYERS_TABLET,
-  STYLES_PLAYERS_MOBILE,
+  ATHELETS_STYLES,
+  PLAYER_STYLES
 } from '@/constants/styles';
 
 import Line from "@/components/commons/Line";
@@ -17,6 +13,24 @@ import CustomImage from '@/components/customs/Image';
 import CustomTitle from '@/components/customs/Title';
 import CustomContents from '@/components/customs/Contents';
 import CustomSlider from '@/components/customs/Slider';
+import styled from 'styled-components';
+
+const SectionStyled = styled.section`
+  
+`
+
+const ArticleStyled = styled.article`
+  position: relative;
+  
+`
+
+const WrapperStyled = styled.div`
+  min-width: 320px;
+  max-width: 1920px;
+
+  display: flex;
+  flex-direction: column;
+`
 
 export default function SinglePageApp() {
 
@@ -27,28 +41,44 @@ export default function SinglePageApp() {
         <meta property="og:title" content="Tri-Petch SPA" key="title" />
       </Head>
 
-      {/* Desktop Section */}
-      <section
-        className='lg:block md:hidden sm:hidden'
-        style={{ minWidth: 1920 }}
-      >
+      <SectionStyled>
         {/* Athlets */}
-        <article className='relative'>
-          <div className='flex flex-col'>
+        <ArticleStyled>
+          <WrapperStyled>
             <CustomTitle
               title={athletsData.title}
-              contentStartAt={1008}
+              contentStartAt={{
+                mobile: 19,
+                tablet: 291,
+                desktop: 1008
+              }}
               customStyles={{
                 marginTop: 24
               }}
             />
             <CustomContents
-              contentStartAt={1008}
+              contentStartAt={{
+                mobile: 19,
+                tablet: 291,
+                desktop: 1008
+              }}
               contents={athletsData.contents}
-              styles={STYLES_ATHELETS_DESKTOP}
+              styles={ATHELETS_STYLES}
             />
-          </div>
 
+            <CustomSlider
+              wrapperStyle={{
+                padding: '72px 1px 69px 19px',
+              }}
+              contentStartAt={{
+                mobile: 0,
+                tablet: 0,
+                desktop: 0
+              }}
+              contents={athletsData.contents}
+              styles={ATHELETS_STYLES}
+            />
+          </WrapperStyled>
           <CustomImage
             image={{
               src: athletsData.image,
@@ -60,24 +90,47 @@ export default function SinglePageApp() {
               left: 175
             }}
           />
-        </article>
+        </ArticleStyled>
 
         {/* Players */}
-        <article className='relative'>
-          <div className='flex flex-col'>
+        <ArticleStyled>
+          <WrapperStyled>
             <CustomTitle
               title={playersData.title}
-              contentStartAt={321}
+              contentStartAt={{
+                mobile: 17,
+                tablet: 31,
+                desktop: 321
+              }}
               customStyles={{
                 marginTop: 124
               }}
             />
             <CustomContents
-              contentStartAt={322}
+              contentStartAt={{
+                mobile: 17,
+                tablet: 31,
+                desktop: 321
+              }}
               contents={playersData.contents}
-              styles={STYLES_PLAYERS_DESKTOP}
+              styles={PLAYER_STYLES}
             />
-          </div>
+
+            <CustomSlider
+              wrapperStyle={{
+                padding: '72px 18px 77px 19px',
+                height: 238,
+                bottom: 20,
+              }}
+              contentStartAt={{
+                mobile: 0,
+                tablet: 0,
+                desktop: 0
+              }}
+              contents={playersData.contents}
+              styles={PLAYER_STYLES}
+            />
+          </WrapperStyled>
 
           <CustomImage
             image={{
@@ -100,197 +153,8 @@ export default function SinglePageApp() {
               </>
             }
           />
-        </article>
-      </section>
-
-      {/* Tablet Section */}
-      <section
-        className='lg:hidden md:block sm:hidden'
-        style={{ minWidth: 768 }}
-      >
-        {/* Athlets */}
-        <article className='relative'>
-          <div className='flex flex-col'>
-            <CustomTitle
-              title={athletsData.title}
-              contentStartAt={291}
-              customStyles={{
-                marginTop: 81
-              }}
-            />
-            <CustomContents
-              contentStartAt={291}
-              contents={athletsData.contents}
-              styles={STYLES_ATHELETS_TABLET}
-            />
-          </div>
-
-          <CustomImage
-            width={498}
-            height={699}
-            image={{
-              src: athletsData.image,
-              alt: athletsData.title
-            }}
-            styles={{
-              position: 'absolute',
-              top: 121,
-              left: -161
-            }}
-            background={
-              <>
-                <div style={{ top: 18.98, left: 189.91 }}><Line width={209.29} height={233.72} /></div>
-
-                <div style={{ top: -10, left: 212 }}><Plus /></div>
-                <div style={{ top: -19, left: 189.91 }}><Plus opacity={0.3} /></div>
-              </>
-            }
-          />
-        </article>
-
-        {/* Players */}
-        <article className='relative'>
-          <div className='flex flex-col'>
-            <CustomTitle
-              title={playersData.title}
-              contentStartAt={31}
-              customStyles={{
-                marginTop: 52
-              }}
-            />
-            <CustomContents
-              contentStartAt={33}
-              contents={playersData.contents}
-              styles={STYLES_PLAYERS_TABLET}
-            />
-          </div>
-
-          <CustomImage
-            width={691}
-            height={568}
-            image={{
-              src: playersData.image,
-              alt: playersData.title
-            }}
-            styles={{
-              position: 'absolute',
-              top: 33,
-              left: 331
-            }}
-            background={
-              <>
-                <div style={{ top: 282, left: 382 }}><Plus /></div>
-                <div style={{ top: 89, left: 224 }}><Plus opacity={0.3} /></div>
-                <div style={{ top: 72, left: 202 }}><Plus /></div>
-
-                <div style={{ top: 263.89, left: 159 }}><Line width={178.88} height={207.22} /></div>
-              </>
-            }
-          />
-        </article>
-      </section>
-
-      {/* Mobile Section */}
-      <section
-        className='lg:hidden md:hidden sm:block'
-        style={{ minWidth: 320 }}
-      >
-        <article className='relative'>
-          <div className='flex flex-col'>
-            <CustomTitle
-              title={athletsData.title}
-              contentStartAt={19}
-              customStyles={{
-                fontSize: 50,
-                lineHeight: 58.59,
-                marginTop: 0,
-                marginBottom: 237
-              }}
-            />
-
-            <CustomSlider
-              wrapperStyle={{
-                padding: '72px 1px 69px 19px'
-              }}
-              contentStartAt={0}
-              contents={athletsData.contents}
-              styles={STYLES_ATHELETS_MOBILE}
-            />
-          </div>
-
-          <CustomImage
-            width={200}
-            height={281}
-            image={{
-              src: athletsData.image,
-              alt: athletsData.title
-            }}
-            styles={{
-              position: 'absolute',
-              top: 70,
-              left: 70
-            }}
-            background={
-              <>
-                <div style={{ top: 12.91, right: 22.75 }}><Line width={178.89} height={197.23} stoke={3} /></div>
-
-                <div style={{ top: 20, left: 4 }}><Plus /></div>
-                <div style={{ top: 11, left: -18 }}><Plus opacity={0.3} /></div>
-              </>
-            }
-          />
-        </article>
-
-        <article className='relative'>
-          <div className='flex flex-col'>
-            <CustomTitle
-              title={playersData.title}
-              contentStartAt={17}
-              customStyles={{
-                fontSize: 50,
-                lineHeight: 58.59,
-                marginTop: 19,
-                marginBottom: 237
-              }}
-            />
-            <CustomSlider
-              wrapperStyle={{
-                padding: '72px 18px 77px 19px',
-                height: 238,
-                bottom: 20,
-              }}
-              contentStartAt={0}
-              contents={playersData.contents}
-              styles={STYLES_PLAYERS_MOBILE}
-            />
-          </div>
-
-          <CustomImage
-            width={302}
-            height={249}
-            image={{
-              src: playersData.image,
-              alt: playersData.title
-            }}
-            styles={{
-              position: 'absolute',
-              top: 101,
-              left: 3
-            }}
-            background={
-              <>
-                <div style={{ top: 149, left: 266 }}><Plus /></div>
-
-                <div style={{ top: 23.32, left: 196.89 }}><Line width={76.69} height={89.84} stoke={3} /></div>
-                <div style={{ top: 108.92, left: 49 }}><Line width={106.35} height={123.2} stoke={3} /></div>
-
-                <div style={{ top: 8, left: 71 }}><Plus /></div>
-                <div style={{ top: -1, left: 49 }}><Plus opacity={0.3} /></div>
-              </>
-            }
-          />
-        </article>
-      </section>
+        </ArticleStyled>
+      </SectionStyled>
     </>
   )
 }

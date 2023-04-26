@@ -1,21 +1,32 @@
 import { FC, PropsWithChildren } from "react";
 import styled, { css } from "styled-components";
 
-import { ContentBoxColorType, ContentStartAtType } from "@/interfaces/style";
+import { ContentBoxStartType, ContentBoxBackgroundColorType } from "@/interfaces/style";
+import { sizeKeys, device } from "@/constants/breakpoints";
+import { getStyled } from '@/utils/styled-components';
 
 interface BoxStyledType {
-    start?: ContentStartAtType
-    backgroundColor?: ContentBoxColorType
+    start?: ContentBoxStartType
+    backgroundColor?: ContentBoxBackgroundColorType
 }
 
 const BoxStyled = styled.div<BoxStyledType>`
-    width: 100%;
+    width: 100vw;
     position: relative;
-    background-color: ${props => props.backgroundColor ? props.backgroundColor : 'transparent'};
+
+    ${sizeKeys.map((size) => css`
+        @media ${device[size]} {
+            background-color: ${props => getStyled(props, ['backgroundColor', size], 'transparent')};
+        }
+    `)}
 `
 
 const BoxInnerStyled = styled.div<BoxStyledType>`
-    margin-left: ${props => props.start && typeof props.start === 'string' ? props.start : `${(props.start || 0)}px`};
+    ${sizeKeys.map((size) => css`
+        @media ${device[size]} {
+            margin-left: ${props => getStyled(props, ['start', size], '0px')};
+        }
+    `)}
 `
 
 const Box: FC<PropsWithChildren<BoxStyledType>> = (props) =>

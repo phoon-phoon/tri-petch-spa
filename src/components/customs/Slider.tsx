@@ -11,8 +11,9 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 import { ContentStylesType, ContentsType } from '@/interfaces/content';
-import { ContentStartAtType } from '@/interfaces/style';
+import { ContentBoxStartType } from '@/interfaces/style';
 import Content from './Content';
+import { device } from '@/constants/breakpoints';
 
 interface WrapperStyleType {
     padding?: string
@@ -22,12 +23,17 @@ interface WrapperStyleType {
 
 interface SliderPropsType {
     contents: ContentsType
-    contentStartAt: ContentStartAtType
+    contentStartAt: ContentBoxStartType
     styles?: ContentStylesType
     wrapperStyle?: WrapperStyleType
 }
 
 const SliderBoxStyled = styled.div<WrapperStyleType>`
+    display: block;
+    @media ${device.tablet} {
+        display: none;
+    }
+
     background-color: #F5F4F9;
 
     .swiper-slide {

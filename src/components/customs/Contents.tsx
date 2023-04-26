@@ -1,11 +1,11 @@
 import { ContentStylesType, ContentsType } from '@/interfaces/content'
-import { ContentStartAtType } from '@/interfaces/style'
+import { ContentBoxStartType } from '@/interfaces/style'
 import React, { FC } from 'react'
 import Content from './Content'
 
 interface ContentsPropsType {
     contents: ContentsType
-    contentStartAt: ContentStartAtType
+    contentStartAt: ContentBoxStartType
     styles?: ContentStylesType
 }
 

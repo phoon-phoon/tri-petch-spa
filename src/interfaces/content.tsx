@@ -1,3 +1,5 @@
+import { SizeKeyType } from "@/constants/breakpoints"
+
 export interface ContentType {
     key: string
     title: string
@@ -37,5 +39,5 @@ export type ContentStyleType = {
     marginBottom?: number | string
     width?: number | string
 }
-
-export type ContentStylesType = { [Key in string]: ContentStyleType }
+export type ContentWithSize = { [Key in SizeKeyType]: ContentStyleType }
+export type ContentStylesType = { [Key in string]: ContentWithSize }
